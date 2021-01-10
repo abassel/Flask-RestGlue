@@ -33,7 +33,6 @@
   <p align="center">
    <a href="https://pypi.org/project/Flask-RestGlue/"><img src="https://img.shields.io/pypi/pyversions/Flask-RestGlue.svg" alt="Python Version"/></a>
    <a href="https://github.com/abassel/Flask-RestGlue/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aapp%2Fdependabot"><img src="https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg" alt="Dependencies Status"/></a>
-   <a href="https://github.com/psf/black"><img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black"/></a>
    <a href="https://github.com/PyCQA/bandit"><img src="https://img.shields.io/badge/security-bandit-green.svg" alt="Security: bandit"/></a>
    <a href="https://github.com/abassel/Flask-RestGlue/blob/master/.pre-commit-config.yaml"><img src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white" alt="Pre-commit"/></a>
    <a href="https://github.com/abassel/Flask-RestGlue/blob/master/LICENSE"><img src="https://img.shields.io/github/license/abassel/Flask-RestGlue" alt="License"/></a>

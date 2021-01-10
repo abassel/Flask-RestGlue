@@ -11,7 +11,7 @@ curl -v -d '{"email":"a@b.com","password":"xyz"}' \
 #}
 
 
-curl -v http://localhost:5000/users
+curl -v http://localhost:5000/user
 #< HTTP/1.0 200 OK
 #< Content-Type: application/json
 #< Content-Length: 57
