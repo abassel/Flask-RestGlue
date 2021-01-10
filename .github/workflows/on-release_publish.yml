@@ -1,0 +1,58 @@
+name: Publish
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.8"
+      - name: Install poetry
+#        run: |
+#          curl -fsS -o get-poetry.py https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py
+#          python get-poetry.py -y
+#          echo "::set-env name=PATH::$HOME/.poetry/bin:$PATH"
+        run: make download-poetry
+
+      - name: Configure poetry
+        run: |
+          source "$HOME/.poetry/env"
+          poetry config virtualenvs.in-project true
+      - name: Set up cache
+        uses: actions/cache@v1
+        id: cache
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ steps.full-python-version.outputs.version }}-${{ hashFiles('**/poetry.lock') }}
+      - name: Ensure cache is healthy
+        if: steps.cache.outputs.cache-hit == 'true'
+        run: |
+          source "$HOME/.poetry/env"
+          poetry run pip --version >/dev/null 2>&1 || rm -rf .venv
+      - name: Install Dependencies
+        run: |
+          source "$HOME/.poetry/env"
+          poetry install
+        # https://dev.to/iancleary/test-and-publish-a-python-package-to-pypi-using-poetry-and-github-actions-186a
+      - name: Build
+        run: |
+          source "$HOME/.poetry/env"
+          # https://nicholasnadeau.me/post/2020/8/one-version-to-rule-them-all-keeping-your-python-package-version-number-in-sync-with-git-and-poetry/
+          poetry version $(git describe --tags --abbrev=0)
+          poetry build
+      - name: Publish
+        env:
+          PYPI_TOKEN: ${{ secrets.TESTPYPI }}
+        run: |
+          source "$HOME/.poetry/env"
+          poetry config repositories.testpypi https://test.pypi.org/legacy/
+          poetry config pypi-token.testpypi $PYPI_TOKEN
+          poetry publish -r testpypi
+
+# https://www.ianwootten.co.uk/2020/10/20/publishing-a-package-to-pypi-with-poetry/

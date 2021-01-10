@@ -1,70 +1,71 @@
 from flask import Flask
 
-from . import openapi_spec
-from .flask_endpoint import _PF_Build_Flask_endpoint, _PF_build_flask_endpoint
+from . import flask_endpoint, openapi_spec
+from .misc import Methods, get_default_api_info
 
 
 class FlaskRestGlue:
-    def __init__(self):
-        self.__pending_introspection = []
-        pass
+    def __init__(self, url="http://127.0.0.1:5000", path="/", spec_path=None, flask_app=None, api_info=None):
+        self._path = path
+        self._spec_path = spec_path
+        self._flask_api = flask_app or Flask(__name__)
+        self._pending_introspection = {}
+        self._api_info = api_info
+        self._openapi_spec = None
 
-    def rest_model(self, *args, **kwargs):
-        def inner(func):
-            """
-            do operations with func
-            """
-            self.__pending_introspection.append(func)
-            return func
+        if self._path[-1] != "/":
+            self._path += "/"
 
-        return inner  # this is the fun_obj mentioned in the above content
+        if self._path[0] != "/":
+            self._path = f"/{self._path}"
+
+        if not self._spec_path:
+            self._spec_path = self._path + "spec"
+
+        if not self._api_info:
+            self._api_info = get_default_api_info(base_url=url, path_spec=self._spec_path)
+
+    def rest_model(self, name=None, methods=Methods.all, *args, **kwargs):
+        def inner(_class):
+            """
+            Store items pending introspection
+            """
+            class_name_lower = (name or f"{_class.__name__}").lower()
+
+            self._pending_introspection[_class] = methods, class_name_lower
+
+            return _class
+
+        return inner
 
     def build(self):
-        # Generate api_doc endpoint
-        flask_api = Flask(__name__)
+        # Generate api_doc and endpoint
+        openapi_spec.mokeypatch_mongoengine()
 
-        openapi_spec_ordDict = openapi_spec.__start_openapi3_dict__()
+        openapi_spec_dict = openapi_spec.__start_openapi3_dict__(**self._api_info)
 
-        for cls in self.__pending_introspection:
-            print(f"doing introspection {cls}")
+        for cls in self._pending_introspection.keys():
+
+            methods, class_name_lower = self._pending_introspection[cls]
 
             # Generate spec
-            class_name, schema = cls._PF_gen_schema()
+            schema = cls._gen_schema()
 
-            openapi_spec_ordDict["components"]["schemas"][class_name] = schema
-            openapi_spec_ordDict["paths"]["/" + class_name] = schema
+            spec_path = openapi_spec.gen_openapi_path_spec(class_name_lower, methods, self._path)
+
+            openapi_spec_dict["components"]["schemas"][class_name_lower] = schema
+            openapi_spec_dict["paths"].update(spec_path)
 
             # Generate endpoint for each class
-            _PF_build_flask_endpoint(flask_api, cls)
+            flask_endpoint.build_class_endpoint(self._flask_api, cls, class_name_lower, methods)
 
-        # finalSpec_str = json.dumps(openapi_spec_data)
-        # print(type(finalSpec_str))
-        # print(finalSpec_str)
+        flask_endpoint.build_flask_openapi_spec_endpoint(self._flask_api, openapi_spec_dict, self._spec_path, self._api_info)
 
-        _PF_Build_Flask_endpoint(flask_api, openapi_spec_ordDict)
+        self._openapi_spec = openapi_spec_dict
 
-        flask_api.config["JSON_SORT_KEYS"] = False
+        self._flask_api.config["JSON_SORT_KEYS"] = False
 
-        # def has_no_empty_params(rule):
-        #     defaults = rule.defaults if rule.defaults is not None else ()
-        #     arguments = rule.arguments if rule.arguments is not None else ()
-        #     return len(defaults) >= len(arguments)
-        #
-        #
-        # @flask_api.route("/site-map")
-        # def site_map():
-        #     links = []
-        #     for rule in flask_api.url_map.iter_rules():
-        #         # Filter out rules we can't navigate to in a browser
-        #         # and rules that require parameters
-        #         if "GET" in rule.methods and has_no_empty_params(rule):
-        #             url = flask_api(rule.endpoint, **(rule.defaults or {}))
-        #             print(url)
-        #             print(rule.endpoint)
-        #             links.append((url, rule.endpoint))
-        #     return str(links)
-
-        return flask_api
+        return self._flask_api
 
     def run(self):
 

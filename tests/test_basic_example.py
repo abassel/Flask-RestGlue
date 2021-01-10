@@ -20,7 +20,7 @@ tclient = flask.test_client()
 
 
 def test_get_empty_db_expect_pass():
-    res = tclient.get("/users")
+    res = tclient.get("/user")
     assert res.status == "200 OK"
     assert res.headers["Content-Type"] == "application/json"
     assert json.loads(res.data) == []
