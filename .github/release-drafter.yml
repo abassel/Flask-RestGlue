@@ -1,0 +1,37 @@
+# Release drafter configuration https://github.com/release-drafter/release-drafter#configuration
+# Emojis were chosen to match the https://gitmoji.carloscuesta.me/
+
+name-template: "$NEXT_PATCH_VERSION"
+tag-template: "$NEXT_PATCH_VERSION"
+
+categories:
+  - title: "🚀 Features"
+    labels: ['enhancement', 'feature']
+
+  - title: "🐛 Bugs"
+    labels: ['bug', 'bugfix', 'fix']
+
+  - title: "🔧 Refactoring"
+    labels: ['refactoring']
+
+  - title: "📦 Build System & CI/CD"
+    labels: ['build', 'ci', 'testing']
+
+  - title: "💥 Breaking Changes"
+    labels: ['breaking']
+
+  - title: "✏️ Documentation"
+    labels: ['documentation']
+
+  - title: "⬆️ Dependencies updates"
+    labels: ['dependencies']
+
+
+template: |
+  ## What’s Changed
+
+  $CHANGES
+
+  ## :busts_in_silhouette: List of contributors
+
+  $CONTRIBUTORS
