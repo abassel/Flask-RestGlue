@@ -183,8 +183,8 @@ pip install Flask-RestGlue
 
 ### 3 - Pull the code
 ```bash
-curl -s -o -L  https://github.com/abassel/Flask-RestGlue/blob/master/example/tut01_hello_world.py
-curl -s -o -L  https://github.com/abassel/Flask-RestGlue/blob/master/example/tut01_hello_world.sh
+curl -s -O -L  https://github.com/abassel/Flask-RestGlue/blob/master/example/tut01_hello_world.py
+curl -s -O -L  https://github.com/abassel/Flask-RestGlue/blob/master/example/tut01_hello_world.sh
 ```
 
 ### 4 - Run the code
