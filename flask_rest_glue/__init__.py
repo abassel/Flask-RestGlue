@@ -1,26 +1,23 @@
 from flask import Flask
 
 from . import flask_endpoint, openapi_spec
-from .misc import Methods, get_default_api_info
+from .misc import Methods, get_default_api_info, url_join
 
 
 class FlaskRestGlue:
-    def __init__(self, url="http://127.0.0.1:5000", path="/", spec_path=None, flask_app=None, api_info=None):
-        self._path = path
+    def __init__(self, url="http://127.0.0.1:5000", path="/", spec_path=None, flask_app=None, api_info=None, gen_map=True):
+        self._path = url_join([path])
         self._spec_path = spec_path
         self._flask_api = flask_app or Flask(__name__)
         self._pending_introspection = {}
         self._api_info = api_info
+        self._gen_map = gen_map
         self._openapi_spec = None
 
-        if self._path[-1] != "/":
-            self._path += "/"
-
-        if self._path[0] != "/":
-            self._path = f"/{self._path}"
-
-        if not self._spec_path:
-            self._spec_path = self._path + "spec"
+        if self._spec_path:
+            self._spec_path = url_join([spec_path])
+        else:
+            self._spec_path = url_join([self._path, "spec"])
 
         if not self._api_info:
             self._api_info = get_default_api_info(base_url=url, path_spec=self._spec_path)
@@ -57,9 +54,9 @@ class FlaskRestGlue:
             openapi_spec_dict["paths"].update(spec_path)
 
             # Generate endpoint for each class
-            flask_endpoint.build_class_endpoint(self._flask_api, cls, class_name_lower, methods)
+            flask_endpoint.build_class_endpoint(self._flask_api, cls, class_name_lower, methods, self._path)
 
-        flask_endpoint.build_flask_openapi_spec_endpoint(self._flask_api, openapi_spec_dict, self._spec_path, self._api_info)
+        flask_endpoint.build_flask_openapi_spec_endpoint(self._flask_api, openapi_spec_dict, self._spec_path, self._api_info, self._path, self._gen_map)
 
         self._openapi_spec = openapi_spec_dict
 
@@ -67,8 +64,8 @@ class FlaskRestGlue:
 
         return self._flask_api
 
-    def run(self):
+    def run(self, *args, **kwargs):
 
         flask_api = self.build()
 
-        flask_api.run()
+        flask_api.run(*args, **kwargs)

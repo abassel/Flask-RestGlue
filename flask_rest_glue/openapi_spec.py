@@ -3,7 +3,7 @@ from collections import OrderedDict
 import mongoengine as mongo
 from mongoengine.base import BaseField, ComplexBaseField
 
-from .misc import Methods
+from .misc import Methods, url_join
 
 base_types_mapping = {
     "ObjectIdField": {"type": "integer", "format": "int64"},
@@ -84,8 +84,8 @@ def generic_endpoint_spec(class_name, operation, require_id):
 def gen_openapi_path_spec(class_name, methods, path):
     toRet = OrderedDict()
 
-    path_with_id = f"{path}{class_name}/{{id}}"
-    path_no_id = f"{path}{class_name}"
+    path_no_id = url_join([path, class_name])
+    path_with_id = url_join([path, class_name, "{id}"])
 
     toRet[path_with_id] = OrderedDict()
     toRet[path_no_id] = OrderedDict()
@@ -192,6 +192,41 @@ def mokeypatch_mongoengine():
 
 
 from typing import Any, Dict, Optional, OrderedDict
+
+
+# Generate basic html map with all possible routes inside flask
+def get_map_html(flask_api) -> str:
+
+    endpoint_routes = {}
+    for rule in flask_api.url_map.iter_rules():
+        methods = ','.join(sorted(rule.methods))
+        endpoint_routes[f"{rule.rule}{methods}"] = rule.rule, methods
+
+    html = """
+    <!DOCTYPE html>
+    <html>
+    <head>
+
+    </head>
+    <body>
+    <div>
+    <ul>
+    """
+
+    for t in sorted(endpoint_routes.keys()):
+        route = endpoint_routes[t]
+        print(route)
+        tmp = route[0].replace("<", "&lt;").replace(">", "&gt;")
+        html += f"<li><a href='{tmp}'>{tmp} {route[1]}</a></li>"
+
+    html += """
+    </ul>
+    </div>
+    </body>
+    </html>
+    """
+
+    return html
 
 
 def get_swagger_ui_html(

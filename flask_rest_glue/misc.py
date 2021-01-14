@@ -18,3 +18,18 @@ def get_default_api_info(base_url, path_spec):
         "openapi_url": f"{base_url}{path_spec}"
     }
     return default_api_info
+
+
+def url_join(pieces):
+
+    # pieces = ["", "//home", "/User/Desktop", "file.txt"]
+    out = '/'.join(s.strip('/') for s in pieces)
+    # '/home/User/Desktop/file.txt'
+
+    if len(out) == 0:
+        return "/"
+
+    if out[0] != "/":
+        out = f"/{out}"
+
+    return out
