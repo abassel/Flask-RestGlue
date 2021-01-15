@@ -276,7 +276,7 @@ pymongo = ">=3.4,<4.0"
 
 [[package]]
 name = "mongomock"
-version = "3.22.0"
+version = "3.22.1"
 description = "Fake pymongo stub for testing simple MongoDB-dependent code"
 category = "dev"
 optional = false
@@ -652,7 +652,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "c190d6d7e7645c9ac5735e0ab9fdb042ce7f837fa01c95dc826fe4f2f3233d61"
+content-hash = "12f537d046033f69d5134c8153a1d037d15c5dd0c47f9af35474391d1e8d4ef9"
 
 [metadata.files]
 appdirs = [
@@ -814,8 +814,8 @@ mongoengine = [
     {file = "mongoengine-0.22.1.tar.gz", hash = "sha256:620d13db551c849402eb3c362878934f5260ec0028fff2a5d81bf53b21d91572"},
 ]
 mongomock = [
-    {file = "mongomock-3.22.0-py2.py3-none-any.whl", hash = "sha256:b4c5ef32f10c3d74425c57d096819de9f607e1e0fe59fa7f92dd27aa57a3dbe3"},
-    {file = "mongomock-3.22.0.tar.gz", hash = "sha256:8512b42a66d34a42df698bba319daa35a36ee3c0d4fe941acebe8957bda8d13c"},
+    {file = "mongomock-3.22.1-py2.py3-none-any.whl", hash = "sha256:c721a7b8ce3ae44442de3cf314a89f4be3fe65bd337d8e7d0d909d8af0d1584e"},
+    {file = "mongomock-3.22.1.tar.gz", hash = "sha256:70d6d0d5e4c4e225eb46a109c527c2388e54f684b6d32bdb4718c0618ecec168"},
 ]
 mypy = [
     {file = "mypy-0.790-cp35-cp35m-macosx_10_6_x86_64.whl", hash = "sha256:bd03b3cf666bff8d710d633d1c56ab7facbdc204d567715cb3b9f85c6e94f669"},
