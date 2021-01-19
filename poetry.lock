@@ -484,7 +484,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
 
 [[package]]
 name = "safety"
-version = "1.10.2.post1"
+version = "1.10.3"
 description = "Checks installed dependencies for known vulnerabilities."
 category = "dev"
 optional = false
@@ -652,7 +652,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "c190d6d7e7645c9ac5735e0ab9fdb042ce7f837fa01c95dc826fe4f2f3233d61"
+content-hash = "64e82f8b5b1dee84b298380576c8b158accdfc64c199dc9e81e266e54cac76bf"
 
 [metadata.files]
 appdirs = [
@@ -967,8 +967,8 @@ requests = [
     {file = "requests-2.25.1.tar.gz", hash = "sha256:27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"},
 ]
 safety = [
-    {file = "safety-1.10.2.post1-py2.py3-none-any.whl", hash = "sha256:6f50edff1c5162d096cacd9557406b32c021c77fe8d2229750eeff22a3e10dfe"},
-    {file = "safety-1.10.2.post1.tar.gz", hash = "sha256:1d8f904c7df7c99f094154a6d2c3ae9703fd2fa58914bd80e005e860a9f4045c"},
+    {file = "safety-1.10.3-py2.py3-none-any.whl", hash = "sha256:5f802ad5df5614f9622d8d71fedec2757099705c2356f862847c58c6dfe13e84"},
+    {file = "safety-1.10.3.tar.gz", hash = "sha256:30e394d02a20ac49b7f65292d19d38fa927a8f9582cdfd3ad1adbbc66c641ad5"},
 ]
 sentinels = [
     {file = "sentinels-1.0.0.tar.gz", hash = "sha256:7be0704d7fe1925e397e92d18669ace2f619c92b5d4eb21a89f31e026f9ff4b1"},
