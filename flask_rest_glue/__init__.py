@@ -17,7 +17,7 @@ class FlaskRestGlue:
         if self._spec_path:
             self._spec_path = url_join([spec_path])
         else:
-            self._spec_path = url_join([self._path, "spec"])
+            self._spec_path = url_join([self._path, "api.json"])
 
         if not self._api_info:
             self._api_info = get_default_api_info(base_url=url, path_spec=self._spec_path)

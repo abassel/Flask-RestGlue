@@ -12,11 +12,11 @@ def build_flask_openapi_spec_endpoint(flask_api, spec, path_spec, api_info, root
     def json_spec():
         return jsonify(spec)
 
-    @flask_api.route(path_spec + "_doc")
+    @flask_api.route(path_spec.split(".json")[0] + "_doc")
     def swagger_html():
         return get_swagger_ui_html(**api_info)
 
-    @flask_api.route(path_spec + "_rdoc")
+    @flask_api.route(path_spec.split(".json")[0] + "_rdoc")
     def redoc_html():
         return get_redoc_html(**api_info)
 
