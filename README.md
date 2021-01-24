@@ -39,7 +39,6 @@
   </p></p>
 
 
-
 <!-- TABLE OF CONTENTS -->
 ## Contents
 <details>
@@ -74,6 +73,8 @@
 
 
 # Example
+
+For a fullstack boilerplate, visit [https://github.com/abassel/Flask_RestGlue_Svelte_Docker](https://github.com/abassel/Flask_RestGlue_Svelte_Docker)
 
 ```python
 import mongoengine as mongo
@@ -198,6 +199,7 @@ bash tut01_hello_world.sh
 ```
 
 ## References :notebook:
+- [Flask_RestGlue_Svelte_Docker boilerplate](https://github.com/abassel/Flask_RestGlue_Svelte_Docker)
 - [OpenAPI 3.0.3](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md)
 - [Flask](http://flask.pocoo.org)
 - [Mongoengine](https://github.com/MongoEngine/mongoengine)
