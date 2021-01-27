@@ -51,7 +51,7 @@ def generic_endpoint_spec(class_name, operation, require_id):
         toRet["parameters"][0]["name"] = "id"
         toRet["parameters"][0]["in"] = "path"
         toRet["parameters"][0]["description"] = f"ID/pk of {class_name} to return"
-        toRet["parameters"][0]["required"] = "true"
+        toRet["parameters"][0]["required"] = True
         toRet["parameters"][0]["schema"] = {}
         toRet["parameters"][0]["schema"]["type"] = "string"
         # toRet["parameters"][0]["schema"]["format"] = "int64"
