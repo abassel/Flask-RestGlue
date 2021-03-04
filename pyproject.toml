@@ -54,7 +54,7 @@ pytest = "^6.2.2"
 pylint = "^2.7.2"
 pydocstyle = "^5.0.2"
 pre-commit = "^2.10.1"
-mongomock = "^3.22.0"
+mongomock = "^3.22.1"
 
 [tool.black]
 # https://github.com/psf/black
