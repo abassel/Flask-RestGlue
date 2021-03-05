@@ -1,0 +1,60 @@
+
+# https://handsonappsec.medium.com/automerge-github-dependabot-alerts-with-github-actions-7cd6f5763750
+# https://localheinz.com/blog/2020/06/15/merging-pull-requests-with-github-actions/
+
+name: "Dependabot Automerge - Action"
+
+on:
+  pull_request:
+
+jobs:
+  worker:
+    runs-on: ubuntu-latest
+
+    if: >
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.draft == false && (
+        github.event.action == 'opened' ||
+        github.event.action == 'reopened' ||
+        github.event.action == 'synchronize'
+      ) && (
+        github.actor == 'dependabot[bot]'
+      )
+
+    steps:
+      - name: "Merge pull request"
+        uses: "actions/github-script@v2"
+        with:
+          github-token: ${{github.token}}
+          script: |
+            const pullRequest = context.payload.pull_request
+            const repository = context.repo
+
+            await github.pulls.merge({
+              merge_method: "merge",
+              owner: repository.owner,
+              pull_number: pullRequest.number,
+              repo: repository.repo,
+            })
+
+
+
+#if: github.actor == 'dependabot[bot]'
+#
+#steps:
+#  - name: automerge
+#    uses: actions/github-script@0.2.0
+#    with:
+#      script: |
+#        github.pullRequests.createReview({
+#          owner: context.payload.repository.owner.login,
+#          repo: context.payload.repository.name,
+#          pull_number: context.payload.pull_request.number,
+#          event: 'APPROVE'
+#        })
+#        github.pullRequests.merge({
+#          owner: context.payload.repository.owner.login,
+#          repo: context.payload.repository.name,
+#          pull_number: context.payload.pull_request.number
+#        })
+#      github-token: ${{github.token}}
