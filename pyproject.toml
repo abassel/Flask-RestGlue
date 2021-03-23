@@ -52,7 +52,7 @@ bandit = "^1.6.2"
 safety = "^1.10.3"
 pytest = "^6.2.2"
 pylint = "^2.7.2"
-pydocstyle = "^5.0.2"
+pydocstyle = "^6.0.0"
 pre-commit = "^2.11.0"
 mongomock = "^3.22.1"
 
