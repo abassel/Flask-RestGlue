@@ -384,7 +384,7 @@ snowballstemmer = "*"
 
 [[package]]
 name = "pylint"
-version = "2.8.1"
+version = "2.8.2"
 description = "python code static checker"
 category = "dev"
 optional = false
@@ -651,7 +651,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "8e70f071c19d1eb69b9298f0da4cb9869b1e996141b383c73d74ed346b20bf98"
+content-hash = "98ff8598470fae0e1fc9da4a05ed86e719ed1602a685d52bdfb6e463e727ba32"
 
 [metadata.files]
 appdirs = [
@@ -893,8 +893,8 @@ pydocstyle = [
     {file = "pydocstyle-6.0.0.tar.gz", hash = "sha256:164befb520d851dbcf0e029681b91f4f599c62c5cd8933fd54b1bfbd50e89e1f"},
 ]
 pylint = [
-    {file = "pylint-2.8.1-py3-none-any.whl", hash = "sha256:4236b7284853b779a8add49aca287a5899245894995c5591d2b5839a32482330"},
-    {file = "pylint-2.8.1.tar.gz", hash = "sha256:ad1bff19c46bfc6d2aeba4de5f76570d253df4915d2043ba61dc6a96233c4bd6"},
+    {file = "pylint-2.8.2-py3-none-any.whl", hash = "sha256:f7e2072654a6b6afdf5e2fb38147d3e2d2d43c89f648637baab63e026481279b"},
+    {file = "pylint-2.8.2.tar.gz", hash = "sha256:586d8fa9b1891f4b725f587ef267abe2a1bad89d6b184520c7f07a253dd6e217"},
 ]
 pymongo = [
     {file = "pymongo-3.11.3-cp27-cp27m-macosx_10_14_intel.whl", hash = "sha256:4d959e929cec805c2bf391418b1121590b4e7d5cb00af7b1ba521443d45a0918"},
