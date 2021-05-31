@@ -46,7 +46,7 @@ mongoengine = ">=0.22.1,<0.24.0"
 [tool.poetry.dev-dependencies]
 darglint = "^1.8.0"
 isort = "^5.8.0"
-pyupgrade = "^2.13.0"
+pyupgrade = "^2.19.0"
 mypy = "^0.812"
 bandit = "^1.6.2"
 safety = "^1.10.3"
