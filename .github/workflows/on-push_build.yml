@@ -33,7 +33,6 @@ jobs:
       - name: Run safety checks
         run: |
           source "$HOME/.poetry/env"
-          pip install --upgrade pip
           STRICT=1 make check-safety
 
       - name: Run style checks
