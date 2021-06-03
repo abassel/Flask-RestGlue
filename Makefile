@@ -102,7 +102,7 @@ endif
 check-safety:
 	$(POETRY_COMMAND_FLAG)poetry check
 	$(PIP_COMMAND_FLAG)poetry run pip check
-	$(SAFETY_COMMAND_FLAG)poetry run safety check --ignore=40291 --full-report
+	$(SAFETY_COMMAND_FLAG)poetry run safety check --ignore=40291 --full-report   # ignore pip safety alert
 	$(BANDIT_COMMAND_FLAG)poetry run bandit -ll -r flask_rest_glue/
 
 .PHONY: check-style
