@@ -466,7 +466,7 @@ testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xm
 
 [[package]]
 name = "pyupgrade"
-version = "2.21.2"
+version = "2.23.0"
 description = "A tool to automatically upgrade syntax for newer versions."
 category = "dev"
 optional = false
@@ -663,7 +663,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "3dc48c9cc92f0be95603e4ca495f775251e51db5b7f36cdd84375ee2675311f9"
+content-hash = "230f1c4a81d48e32600bb173862e18e6c49d2e604e78f42715feb76069d728fd"
 
 [metadata.files]
 astroid = [
@@ -1004,8 +1004,8 @@ pytest = [
     {file = "pytest-6.2.4.tar.gz", hash = "sha256:50bcad0a0b9c5a72c8e4e7c9855a3ad496ca6a881a3641b4260605450772c54b"},
 ]
 pyupgrade = [
-    {file = "pyupgrade-2.21.2-py2.py3-none-any.whl", hash = "sha256:0b923ec80a835f199a41572e184718b5b748f780144956aa8a88c1b10410339b"},
-    {file = "pyupgrade-2.21.2.tar.gz", hash = "sha256:9f2d20dc75383a509eb0f15326f33ab3f3707958e1570df72f85bf77bb8a8935"},
+    {file = "pyupgrade-2.23.0-py2.py3-none-any.whl", hash = "sha256:24535b6c3efc86b0a72b1cac627a852ad394a514823cd9e96c3442364e96e152"},
+    {file = "pyupgrade-2.23.0.tar.gz", hash = "sha256:c22beaf4d4fe5d1cd3b57028ee3de7393e537eeb41a9ba70d2cc531db9fdc244"},
 ]
 pyyaml = [
     {file = "PyYAML-5.4.1-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:3b2b1824fe7112845700f815ff6a489360226a5609b96ec2190a45e62a9fc922"},
