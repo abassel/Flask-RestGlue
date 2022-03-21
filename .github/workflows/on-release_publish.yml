@@ -25,7 +25,7 @@ jobs:
           source "$HOME/.poetry/env"
           poetry config virtualenvs.in-project true
       - name: Set up cache
-        uses: actions/cache@v2.1.7
+        uses: actions/cache@v3
         id: cache
         with:
           path: .venv
