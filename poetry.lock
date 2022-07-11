@@ -528,7 +528,7 @@ testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "pygments (>=2.
 
 [[package]]
 name = "pyupgrade"
-version = "2.34.0"
+version = "2.37.0"
 description = "A tool to automatically upgrade syntax for newer versions."
 category = "dev"
 optional = false
@@ -793,7 +793,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "2823e6b226c09af61421e541a007f04beec75eaec820c91ef1aee8f9887f80e5"
+content-hash = "f5bed5167f89a29bbe500a74a3fd0b8ac3b19629204da9f6c851e519d1546082"
 
 [metadata.files]
 astroid = []
