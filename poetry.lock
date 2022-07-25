@@ -107,7 +107,7 @@ optional = false
 python-versions = "*"
 
 [package.extras]
-test = ["flake8 (==3.7.8)", "hypothesis (==3.55.3)"]
+test = ["hypothesis (==3.55.3)", "flake8 (==3.7.8)"]
 
 [[package]]
 name = "darglint"
@@ -405,8 +405,8 @@ optional = false
 python-versions = ">=3.6"
 
 [package.extras]
-dev = ["pre-commit", "tox"]
-testing = ["pytest", "pytest-benchmark"]
+testing = ["pytest-benchmark", "pytest"]
+dev = ["tox", "pre-commit"]
 
 [[package]]
 name = "pre-commit"
@@ -715,10 +715,10 @@ rich = {version = ">=10.11.0,<13.0.0", optional = true, markers = "extra == \"al
 shellingham = {version = ">=1.3.0,<2.0.0", optional = true, markers = "extra == \"all\""}
 
 [package.extras]
-all = ["colorama (>=0.4.3,<0.5.0)", "shellingham (>=1.3.0,<2.0.0)", "rich (>=10.11.0,<13.0.0)"]
-dev = ["autoflake (>=1.3.1,<2.0.0)", "flake8 (>=3.8.3,<4.0.0)", "pre-commit (>=2.17.0,<3.0.0)"]
-doc = ["mkdocs (>=1.1.2,<2.0.0)", "mkdocs-material (>=8.1.4,<9.0.0)", "mdx-include (>=1.4.1,<2.0.0)"]
-test = ["shellingham (>=1.3.0,<2.0.0)", "pytest (>=4.4.0,<5.4.0)", "pytest-cov (>=2.10.0,<3.0.0)", "coverage (>=5.2,<6.0)", "pytest-xdist (>=1.32.0,<2.0.0)", "pytest-sugar (>=0.9.4,<0.10.0)", "mypy (==0.910)", "black (>=22.3.0,<23.0.0)", "isort (>=5.0.6,<6.0.0)", "rich (>=10.11.0,<13.0.0)"]
+test = ["rich (>=10.11.0,<13.0.0)", "isort (>=5.0.6,<6.0.0)", "black (>=22.3.0,<23.0.0)", "mypy (==0.910)", "pytest-sugar (>=0.9.4,<0.10.0)", "pytest-xdist (>=1.32.0,<2.0.0)", "coverage (>=5.2,<6.0)", "pytest-cov (>=2.10.0,<3.0.0)", "pytest (>=4.4.0,<5.4.0)", "shellingham (>=1.3.0,<2.0.0)"]
+doc = ["mdx-include (>=1.4.1,<2.0.0)", "mkdocs-material (>=8.1.4,<9.0.0)", "mkdocs (>=1.1.2,<2.0.0)"]
+dev = ["pre-commit (>=2.17.0,<3.0.0)", "flake8 (>=3.8.3,<4.0.0)", "autoflake (>=1.3.1,<2.0.0)"]
+all = ["rich (>=10.11.0,<13.0.0)", "shellingham (>=1.3.0,<2.0.0)", "colorama (>=0.4.3,<0.5.0)"]
 
 [[package]]
 name = "typing-extensions"
@@ -761,11 +761,14 @@ testing = ["coverage (>=4)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", 
 
 [[package]]
 name = "werkzeug"
-version = "2.1.2"
+version = "2.2.0"
 description = "The comprehensive WSGI web application library."
 category = "main"
 optional = false
 python-versions = ">=3.7"
+
+[package.dependencies]
+MarkupSafe = ">=2.1.1"
 
 [package.extras]
 watchdog = ["watchdog"]
@@ -1288,8 +1291,8 @@ virtualenv = [
     {file = "virtualenv-20.15.1.tar.gz", hash = "sha256:288171134a2ff3bfb1a2f54f119e77cd1b81c29fc1265a2356f3e8d14c7d58c4"},
 ]
 werkzeug = [
-    {file = "Werkzeug-2.1.2-py3-none-any.whl", hash = "sha256:72a4b735692dd3135217911cbeaa1be5fa3f62bffb8745c5215420a03dc55255"},
-    {file = "Werkzeug-2.1.2.tar.gz", hash = "sha256:1ce08e8093ed67d638d63879fd1ba3735817f7a80de3674d293f5984f25fb6e6"},
+    {file = "Werkzeug-2.2.0-py3-none-any.whl", hash = "sha256:81806f8a5b35e6cb1b39a6f28dabf0e123f069c8596119a1a9a43838870016cd"},
+    {file = "Werkzeug-2.2.0.tar.gz", hash = "sha256:fe8bcdcef40275ed915fc734c2527a39d705b57a716d4f09e790296abbd16a7f"},
 ]
 wrapt = [
     {file = "wrapt-1.14.1-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:1b376b3f4896e7930f1f772ac4b064ac12598d1c38d04907e696cc4d794b43d3"},
