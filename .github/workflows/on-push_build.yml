@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [ "3.8", "3.9" ]
+        python-version: [ "3.8", "3.9", "3.10", "3.11" ]
 
     steps:
       - uses: actions/checkout@v3
@@ -25,22 +25,13 @@ jobs:
           path: .venv
           key: venv-${{ matrix.python-version }}-${{ hashFiles('pyproject.toml') }}-${{ hashFiles('poetry.lock') }}
       - name: Install dependencies
-        run: |
-          source "$HOME/.poetry/env"
-          poetry config virtualenvs.in-project true
-          poetry install
+        run: poetry install
 
       - name: Run safety checks
-        run: |
-          source "$HOME/.poetry/env"
-          STRICT=1 make check-safety
+        run: STRICT=1 poetry run make check-safety
 
       - name: Run style checks
-        run: |
-          source "$HOME/.poetry/env"
-          STRICT=1 make check-style
+        run: STRICT=1 poetry run make check-style
 
       - name: Run tests
-        run: |
-          source "$HOME/.poetry/env"
-          make test
+        run: poetry run make test
