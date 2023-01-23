@@ -617,14 +617,14 @@ files = [
 
 [[package]]
 name = "mongoengine"
-version = "0.25.0"
+version = "0.26.0"
 description = "MongoEngine is a Python Object-Document Mapper for working with MongoDB."
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "mongoengine-0.25.0-py3-none-any.whl", hash = "sha256:29882b732d1e139d9a9e82be349a56d772ff1154e3ab2716dbb093a7cb9c76fa"},
-    {file = "mongoengine-0.25.0.tar.gz", hash = "sha256:e7a3c97704beaf56ecf7bdbf7eacaa7cd1a8723821a0b270521dab17671cc045"},
+    {file = "mongoengine-0.26.0-py3-none-any.whl", hash = "sha256:020a0779d1830affc649f2760d8c408e998981f18898e425eb041915181d3a53"},
+    {file = "mongoengine-0.26.0.tar.gz", hash = "sha256:3f284bdcbe8d1a3a9b8ab7d3c3ed672d10b8fd2e545447cd1d75e40d6e978332"},
 ]
 
 [package.dependencies]
@@ -1505,4 +1505,4 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "4d5d7dc37f32d5be8efb705fc9dc5c176b2c16203619d998bc43b51cfdc5f00d"
+content-hash = "03e5ed3e8eecfc5ddc138f4904ce450c44406b47043bd6869bd59e140e6f2a4f"
