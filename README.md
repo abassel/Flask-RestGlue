@@ -199,6 +199,22 @@ In another terminal window
 bash tut01_hello_world.sh
 ```
 
+## Road Map :car:
+
+- Evaluate https://testdriven.io/blog/fastapi-mongo/
+- Evaluate https://github.com/David-Lor/FastAPI-Pydantic-Mongo_Sample_CRUD_API
+- Evaluate https://art049.github.io/odmantic/
+- Example user model that stores password as hash - https://aaronluna.dev/series/flask-api-tutorial/part-2/
+- ORM examples for FastAPI - https://github.com/mjhea0/awesome-fastapi#orms
+- ODM examples for FastAPI - https://github.com/mjhea0/awesome-fastapi#odms
+- Authorization at row level - https://github.com/mjhea0/awesome-fastapi?tab=readme-ov-file#auth
+- Develop pagination
+- Develop Pydantic
+- Google search about flask api with sqlalchemy https://www.google.com/search?q=flask+api+sqlalchemy+tutorial
+- Evaluate flask api with migration https://aaronluna.dev/series/flask-api-tutorial/part-2/
+- Develop tools to generate typescript or svelte stubs
+- Create a template like https://github.com/tiangolo/full-stack-fastapi-template
+
 ## References :notebook:
 - [Flask_RestGlue_Svelte_Docker boilerplate](https://github.com/abassel/Flask_RestGlue_Svelte_Docker)
 - [OpenAPI 3.0.3](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md)
