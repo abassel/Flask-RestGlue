@@ -97,7 +97,7 @@ api.run()
 
 ```
 
-Go to [http://127.0.0.1:5000/spec_doc](http://127.0.0.1:5000/spec_doc) or [http://127.0.0.1:5000/spec_rdoc](http://127.0.0.1:5000/spec_rdoc) to see the documentation bellow:
+Go to [http://127.0.0.1:5000/spec_doc](http://127.0.0.1:5000/spec_doc) or [http://127.0.0.1:5000/spec_rdoc](http://127.0.0.1:5000/spec_rdoc) to see the documentation below:
 
 ![Swagger UI](https://abassel.github.io/Flask-RestGlue/swagger.png)
 
