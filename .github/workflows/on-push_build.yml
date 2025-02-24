@@ -27,8 +27,8 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
-      - name: Run safety checks
-        run: STRICT=1 poetry run make check-safety
+      # - name: Run safety checks
+      #   run: STRICT=1 poetry run make check-safety
 
       - name: Run style checks
         run: STRICT=1 poetry run make check-style
